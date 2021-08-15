@@ -1,5 +1,12 @@
+import Clock from './components/Clock';
+
 function App() {
-    return <div>hello world</div>;
+    console.log('App component rendered');
+    return (
+        <div>
+            <Clock />
+        </div>
+    );
 }
 
 export default App;
