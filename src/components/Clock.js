@@ -2,13 +2,6 @@ import React from 'react';
 import Button from './Button';
 
 class Clock extends React.Component {
-    // myNote: handleClick bind for "this" . See: 33.11
-    // constructor(props){
-    //     super(props);
-    //     this.state = {date: new date(), locale : 'bn-BD'};
-    //     this.handleClick = this.handleClick.bind(this);
-    // }
-
     state = { date: new Date(), locale: 'bn-BD' };
 
     componentDidMount() {
@@ -32,18 +25,18 @@ class Clock extends React.Component {
     }
 
     render() {
-        console.log('clock component rendered');
         const { date, locale } = this.state;
         return (
             <div>
                 <h1 className="heading">
                     <span className="text">{date.toLocaleTimeString(locale)}</span>
                 </h1>
-
-                {/* <button type="button" onClick={()=> this.handleClick('en-US')}> </button> */}
-                <Button change={this.handleClick} locale="en-US">
-                    Click here
-                </Button>
+                {locale === 'bn-BD' ? (
+                    <Button change={this.handleClick} locale="en-US" show={false} enable={false} />
+                ) : (
+                    <Button change={this.handleClick} locale="bn-BD" show enable />
+                    // show alada kore ture lekhar dorkar nai . ei syntex true mean kore
+                )}
             </div>
         );
     }
